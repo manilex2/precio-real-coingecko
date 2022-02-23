@@ -5,7 +5,7 @@ const { database } = require('./keys');
 const mysql = require('mysql2');
 const fetch = require('node-fetch');
 const morgan = require('morgan');
-const PUERTO = 4100;
+const PUERTO = 4300;
 
 app.use(morgan('dev'));
 
@@ -19,8 +19,9 @@ app.get('/', async (req, res) => {
     });
     var sql = `SELECT name FROM ${process.env.TABLE_CRIPTOS}`;
     conexion.query(sql, async function (err, resultado) {
-        console.log('Conexion establecida');
-        console.error(err);
+        if (err) throw err;
+        console.log('Conexion establecida con la base de datos');
+        console.log(resultado);
     });
 });
 
