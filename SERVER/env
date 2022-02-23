@@ -1,0 +1,6 @@
+DB_DATABASE=invrtircriptos
+DB_HOST=seguimiento-oportunidades.cbu0yo4ytkop.us-east-2.rds.amazonaws.com
+DB_PASSWORD=Invrtir*2021
+DB_PORT=3306
+DB_USER=root
+TABLE_CRIPTOS=criptoslist
