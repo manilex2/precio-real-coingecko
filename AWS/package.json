@@ -1,11 +1,16 @@
 {
   "name": "precio-real-coingecko",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Funcion que llama las coins desde la base de datos de AWS, obtiene los precios reales de coingecko y los guarda en una base de datos",
   "main": "index.js",
   "scripts": {
-    "test": "dev"
+    "dev": "nodemon index.js"
   },
   "author": "Manuel Pereira",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.0"
+  }
 }
