@@ -49,7 +49,7 @@ app.get('/', async (req, res) => {
         var datos = [];
         var fecha = new Date();
         var mes = fecha.getMonth() + 1;
-        fechaFormateada = `${fecha.getFullYear()}-${mes}-${fecha.getDate()}`;
+        var fechaFormateada = `${fecha.getFullYear()}-${mes}-${fecha.getDate()}`;
         for (const coin in respuesta) {
             for (const precio in respuesta[coin]) {
                 datos.push([coin, fechaFormateada, respuesta[coin][precio]]);
@@ -69,7 +69,6 @@ app.get('/', async (req, res) => {
             console.log(resultado);
             await finalizarEjecucion();
         });
-        console.log(sql, sql2, sql3)
     }
     async function finalizarEjecucion() {
         conexion.end();
