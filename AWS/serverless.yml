@@ -16,10 +16,7 @@ provider:
       DB_DATABASE: ${env:DB_DATABASE}
       TABLE_LIST_CRIPTOS: ${env:TABLE_LIST_CRIPTOS}
       TABLE_PRICE_CRIPTOS: ${env:TABLE_PRICE_CRIPTOS}
-      NUM_GRUPOS: ${env:NUM_GRUPOS}
-      DELAY: ${env:DELAY}
     
-
 functions:
   precioRealCoingecko:
     handler: index.handler
