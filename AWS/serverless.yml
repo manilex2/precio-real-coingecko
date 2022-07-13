@@ -1,0 +1,33 @@
+# serverless.yml
+
+service: precio-real-coingecko
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-2
+  stage: prod
+  environment:
+      DB_HOST: ${env:DB_HOST}
+      DB_USER: ${env:DB_USER}
+      DB_PASSWORD: ${env:DB_PASSWORD}
+      DB_PORT: ${env:DB_PORT}
+      DB_DATABASE: ${env:DB_DATABASE}
+      TABLE_LIST_CRIPTOS: ${env:TABLE_LIST_CRIPTOS}
+      TABLE_PRICE_CRIPTOS: ${env:TABLE_PRICE_CRIPTOS}
+      NUM_GRUPOS: ${env:NUM_GRUPOS}
+      DELAY: ${env:DELAY}
+    
+
+functions:
+  precioRealCoingecko:
+    handler: index.handler
+    memorySize: 256
+    name: precioRealCoingecko
+    description: LCF2 - Funcion que llama las coins desde la base de datos de AWS, obtiene los precios reales de coingecko y los guarda en una base de datos.
+    timeout: 180
+    maximumRetryAttempts: 0
+    events:
+      - eventBridge:
+          schedule: cron(0/5 * ? * * *)
